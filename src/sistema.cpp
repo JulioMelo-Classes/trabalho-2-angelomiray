@@ -86,7 +86,9 @@ int Sistema::checkDonoServidor(const string nome, int id){
         return -1;// caso servidor não exista.
 }
 
-
+/*
+A1.2 ok
+*/
 string Sistema::create_user (const string email, const string senha, const string nome) {
     //se não há nenhum email cadastrado no sistema:
     if(checkEmail(email) == false){
@@ -105,6 +107,9 @@ string Sistema::create_user (const string email, const string senha, const strin
 }
 
 
+/*
+A1.3 ok
+*/
 string Sistema::login(const string email, const string senha) {
 
     int login_id = checkLogin(email, senha);
@@ -120,7 +125,9 @@ string Sistema::login(const string email, const string senha) {
   
 }
 
-
+/*
+A2.1 ok
+*/
 string Sistema::disconnect(int id) {
 
     if(sistemaUsuariosLogados.count(id) > 0){ //se tal usuário está logado.
@@ -142,7 +149,9 @@ string Sistema::disconnect(int id) {
 
 }
 
-
+/*
+A2.2 ok
+*/
 string Sistema::create_server(int id, const string nome) {
 
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -152,6 +161,9 @@ string Sistema::create_server(int id, const string nome) {
             sistemaServidores.push_back(novo_servidor);
 
             //**************************************
+            //não era um requisito, como falamos o usuário só passa a visualizar se ele estiver no servidor
+            //nesse caso como ele não fez enter-server não tem sentido estar visualizando, a menos que vc adicionasse
+            //esse usuário ao servidor.
             sistemaUsuariosLogados[id].first = nome; 
             //USUÁRIO PASSA A VISUALIZAR O SERVIDOR.
 
@@ -171,7 +183,9 @@ string Sistema::create_server(int id, const string nome) {
 
 }
 
-
+/*
+A2.3 ok
+*/
 string Sistema::set_server_desc(int id, const string nome, const string descricao) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -204,7 +218,9 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
 
 }
 
-
+/*
+A2.4 ok
+*/
 string Sistema::set_server_invite_code(int id, const string nome, const string codigo) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -248,7 +264,9 @@ string Sistema::set_server_invite_code(int id, const string nome, const string c
 
 }
 
-
+/*
+A2.5 ok!
+*/
 string Sistema::list_servers(int id) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -277,7 +295,9 @@ string Sistema::list_servers(int id) {
 }
 
 
-
+/*
+A2.6 ok
+*/
 string Sistema::remove_server(int id, const string nome) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -298,7 +318,7 @@ string Sistema::remove_server(int id, const string nome) {
 
             for(auto it = sistemaUsuariosLogados.begin(); it != sistemaUsuariosLogados.end(); ++it){
 
-                if(it->second.first == nome){
+                if(it->second.first == nome){ //aqui vc tb precisa setar o canal pra ""
                     it->second.first = "";
                 }
             }

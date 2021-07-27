@@ -7,6 +7,10 @@
 
 using namespace std;
 
+/*
+Classe servidor CP1 70%
+Vou tirar 30% por vc ter implementado tudo no .h
+*/
 class Servidor{
 	private:
        int usuarioDonold; //id do usuário que criou o servidor.

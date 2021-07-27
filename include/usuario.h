@@ -3,8 +3,12 @@
 
 #include <string>
 
-using namespace std;
+using namespace std; //isso aqui no .h é uma má prática
 
+/*
+CP1 classe usuário 70%
+tirei 30% por ter implementado tudo no .h
+*/
 class Usuario{
 	private:
         int userId; //identificador único para o usuário.
