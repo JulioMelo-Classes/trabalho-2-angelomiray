@@ -1,0 +1,3 @@
+/home/runner/Concordo/LP1-Concordo/build/CMakeFiles/rebuild_cache.dir
+/home/runner/Concordo/LP1-Concordo/build/CMakeFiles/concordo.dir
+/home/runner/Concordo/LP1-Concordo/build/CMakeFiles/edit_cache.dir
