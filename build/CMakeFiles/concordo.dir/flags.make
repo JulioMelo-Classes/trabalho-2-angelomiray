@@ -6,5 +6,5 @@ CXX_FLAGS =
 
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/runner/Concordo/LP1-Concordo/include 
+CXX_INCLUDES = -I/home/runner/Concordo/Concordo/include 
 

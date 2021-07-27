@@ -6,17 +6,17 @@
 
 #IncludeRegexTransform: 
 
-/home/runner/Concordo/LP1-Concordo/include/canaltexto.h
+/home/runner/Concordo/Concordo/include/canaltexto.h
 string
 -
 vector
 -
 mensagem.h
-/home/runner/Concordo/LP1-Concordo/include/mensagem.h
+/home/runner/Concordo/Concordo/include/mensagem.h
 
-/home/runner/Concordo/LP1-Concordo/include/executor.h
+/home/runner/Concordo/Concordo/include/executor.h
 sistema.h
-/home/runner/Concordo/LP1-Concordo/include/sistema.h
+/home/runner/Concordo/Concordo/include/sistema.h
 istream
 -
 ostream
@@ -24,19 +24,19 @@ ostream
 sstream
 -
 
-/home/runner/Concordo/LP1-Concordo/include/mensagem.h
+/home/runner/Concordo/Concordo/include/mensagem.h
 string
 -
 
-/home/runner/Concordo/LP1-Concordo/include/servidor.h
+/home/runner/Concordo/Concordo/include/servidor.h
 string
 -
 ../include/canaltexto.h
-/home/runner/Concordo/LP1-Concordo/include/canaltexto.h
+/home/runner/Concordo/Concordo/include/canaltexto.h
 vector
 -
 
-/home/runner/Concordo/LP1-Concordo/include/sistema.h
+/home/runner/Concordo/Concordo/include/sistema.h
 vector
 -
 string
@@ -46,17 +46,17 @@ iostream
 map
 -
 usuario.h
-/home/runner/Concordo/LP1-Concordo/include/usuario.h
+/home/runner/Concordo/Concordo/include/usuario.h
 servidor.h
-/home/runner/Concordo/LP1-Concordo/include/servidor.h
+/home/runner/Concordo/Concordo/include/servidor.h
 canaltexto.h
-/home/runner/Concordo/LP1-Concordo/include/canaltexto.h
+/home/runner/Concordo/Concordo/include/canaltexto.h
 
-/home/runner/Concordo/LP1-Concordo/include/usuario.h
+/home/runner/Concordo/Concordo/include/usuario.h
 string
 -
 
-/home/runner/Concordo/LP1-Concordo/src/concordo.cpp
+/home/runner/Concordo/Concordo/src/concordo.cpp
 iostream
 -
 list
@@ -66,13 +66,13 @@ vector
 string
 -
 ../include/sistema.h
-/home/runner/Concordo/LP1-Concordo/include/sistema.h
+/home/runner/Concordo/Concordo/include/sistema.h
 ../include/executor.h
-/home/runner/Concordo/LP1-Concordo/include/executor.h
+/home/runner/Concordo/Concordo/include/executor.h
 
-/home/runner/Concordo/LP1-Concordo/src/executor.cpp
+/home/runner/Concordo/Concordo/src/executor.cpp
 ../include/executor.h
-/home/runner/Concordo/LP1-Concordo/include/executor.h
+/home/runner/Concordo/Concordo/include/executor.h
 istream
 -
 ostream
@@ -84,13 +84,13 @@ sstream
 queue
 -
 
-/home/runner/Concordo/LP1-Concordo/src/sistema.cpp
+/home/runner/Concordo/Concordo/src/sistema.cpp
 ../include/sistema.h
-/home/runner/Concordo/LP1-Concordo/include/sistema.h
+/home/runner/Concordo/Concordo/include/sistema.h
 ../include/usuario.h
-/home/runner/Concordo/LP1-Concordo/include/usuario.h
+/home/runner/Concordo/Concordo/include/usuario.h
 ../include/servidor.h
-/home/runner/Concordo/LP1-Concordo/include/servidor.h
+/home/runner/Concordo/Concordo/include/servidor.h
 iostream
 -
 sstream
