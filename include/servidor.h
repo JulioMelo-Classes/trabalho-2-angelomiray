@@ -46,7 +46,7 @@ class Servidor{
             return this->serverDesc;
         }
 
-
+        /*esse método não deveria retornar qualquer coisa*/
         string setServerCodigoConvite(const string serverCodigoConvite){
             this->serverCodigoConvite = serverCodigoConvite;
         }
