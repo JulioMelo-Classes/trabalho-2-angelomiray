@@ -1,6 +1,9 @@
 #include "../include/sistema.h"
-#include "../include/usuario.h"
+#include "../include/executor.h"
+#include "../include/mensagem.h"
 #include "../include/servidor.h"
+#include "../include/usuario.h"
+#include "../include/canaltexto.h"
 #include <iostream>
 #include <sstream>
 #include <algorithm>
@@ -8,7 +11,7 @@
 
 using namespace std;
 
-/* COMANDOS */
+
 string Sistema::quit() {
   return "Saindo do concordo...";
 }
@@ -87,6 +90,20 @@ int Sistema::checkDonoServidor(const string nome, int id){
 }
 
 
+int Sistema::checkServerExists(const string nomeServer){
+
+    for(int i=0; i < sistemaServidores.size(); ++i){
+        if(sistemaServidores[i].getServerNome() == nomeServer)
+            return i;
+    }
+
+    return -1;
+}
+
+
+/****************************  COMANDOS   **********************/
+
+
 string Sistema::create_user (const string email, const string senha, const string nome) {
     //se não há nenhum email cadastrado no sistema:
     if(checkEmail(email) == false){
@@ -96,11 +113,11 @@ string Sistema::create_user (const string email, const string senha, const strin
         sistemaUsuarios.push_back(novo_usuario);
         ++sistemaIds;
         
-        return "Usuário criado com sucesso!";
+        return "Usuário criado com sucesso! \n";
     }
 
     else{
-        return "Usuário já existe! Tente outro e-mail.";
+        return "Usuário já existe! Tente outro e-mail. \n";
     }
 }
 
@@ -109,13 +126,20 @@ string Sistema::login(const string email, const string senha) {
 
     int login_id = checkLogin(email, senha);
 
+
     if(login_id != -1){//login_id == -1 implica que alguma informação fornecida está incorreta.
-        sistemaUsuariosLogados.insert({login_id, make_pair("", "")});
-        return "Login efetuado com sucesso. Logado como " + email + ".";
+        if(sistemaUsuariosLogados.count(login_id) > 0){
+            return "Você já está logado como " + email + ". \n";
+        }
+        
+        else{
+            sistemaUsuariosLogados.insert({login_id, make_pair("", "")});
+            return "Login efetuado com sucesso. Logado como " + email + ". \n";
+        }
     }
 
     else{
-        return "Senha ou e-mail inválidos!";
+        return "Senha ou e-mail inválidos! \n";
     }
   
 }
@@ -132,11 +156,11 @@ string Sistema::disconnect(int id) {
 
         sistemaUsuariosLogados.erase(it);
 
-        return "Usuário " + sistemaUsuarios[id].getEmail() + " desconectado com sucesso.";
+        return "Usuário " + sistemaUsuarios[id].getEmail() + " desconectado com sucesso. \n";
     }
 
     else{
-        return "Este usuário não está conectado.";
+        return "Este usuário não está conectado. \n";
     }
 
 
@@ -151,21 +175,17 @@ string Sistema::create_server(int id, const string nome) {
             Servidor novo_servidor(nome, id);
             sistemaServidores.push_back(novo_servidor);
 
-            //**************************************
-            sistemaUsuariosLogados[id].first = nome; 
-            //USUÁRIO PASSA A VISUALIZAR O SERVIDOR.
-
-            return "Servidor [ " + novo_servidor.getServerNome() + " ] criado."; 
+            return "Servidor [ " + novo_servidor.getServerNome() + " ] criado. \n"; 
         }   
 
         else{
-            return "Servidor com esse nome já existe.";
+            return "Servidor com esse nome já existe. \n";
         }        
 
     }
 
     else{
-        return "Este usuário não está logado.";
+        return "Este usuário não está logado. \n";
     }
 
 
@@ -181,7 +201,7 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
 
             sistemaServidores[ret].setServerDesc(descricao);
 
-            return "Descrição do servidor " + sistemaServidores[ret].getServerNome() + " modificado.";
+            return "Descrição do servidor " + sistemaServidores[ret].getServerNome() + " modificado. \n";
         }
 
         else{
@@ -199,7 +219,7 @@ string Sistema::set_server_desc(int id, const string nome, const string descrica
     }
 
     else{
-        return "Este usuário não está logado.";
+        return "Este usuário não está logado. \n";
     }
 
 }
@@ -235,7 +255,7 @@ string Sistema::set_server_invite_code(int id, const string nome, const string c
             }
 
             else{
-                return "Você não pode alterar a descrição de um servidor que não foi criado por você.\n";
+                return "Você não pode alterar o código de convite de um servidor que não foi criado por você.\n";
             }
 
         }
@@ -277,7 +297,6 @@ string Sistema::list_servers(int id) {
 }
 
 
-
 string Sistema::remove_server(int id, const string nome) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -288,18 +307,18 @@ string Sistema::remove_server(int id, const string nome) {
             for(int i=0; i < sistemaServidores.size(); ++i){
 
                 if(sistemaServidores[i].getServerNome() == nome){
-
+                    sistemaServidores[i].excluirCanaisTexto();
                     sistemaServidores.erase(sistemaServidores.begin()+i);
-            
+                    break;
                 }
                 
             }    
             //removendo usuarios q visualizam o servidor
 
             for(auto it = sistemaUsuariosLogados.begin(); it != sistemaUsuariosLogados.end(); ++it){
-
                 if(it->second.first == nome){
                     it->second.first = "";
+                    it->second.second = "";
                 }
             }
 
@@ -329,50 +348,359 @@ string Sistema::remove_server(int id, const string nome) {
 
 
 string Sistema::enter_server(int id, const string nome, const string codigo) {
-  return "enter_server NÃO IMPLEMENTADO";
+
+    if(sistemaUsuariosLogados.count(id) > 0){
+        
+        if(codigo.empty()){//se o server for aberto
+            int ret = checkServerExists(nome);
+
+            if(ret != -1){// ret == -1 implica que o servidor não existe.
+                sistemaServidores[ret].addUserToServer(id);
+                sistemaUsuariosLogados[id].first = nome;
+
+                return "Entrou no servidor com sucesso.\n";
+            }
+
+            else{
+                return "Servidor [ " + nome + " ] não existe.\n";
+            }
+
+        }
+
+        else{
+            int ret = checkServerExists(nome);
+
+            if(ret != -1){//se o servidor existir
+
+                if(sistemaServidores[ret].getUsuarioDonold() == id){//caso ele seja o dono, não precisa de convite
+                    sistemaServidores[ret].addUserToServer(id);
+                    sistemaUsuariosLogados[id].first = nome;
+
+                    return "Entrou no servidor com sucesso.\n";
+                }
+
+                else{ //caso não seja o dono
+
+                    if(sistemaServidores[ret].getServerCodigoConvite() == codigo){
+                        sistemaServidores[ret].addUserToServer(id);
+                        sistemaUsuariosLogados[id].first = nome;
+
+                        return "Entrou no servidor com sucesso.\n";
+                    }
+
+                    else{
+                        return "Código fornecido é inválido.\n";
+                    }
+
+                }
+            }
+
+            else{
+                return "Servidor [ " + nome + " ] não existe.\n";
+            }
+
+        }
+
+        return "";
+    }
+
+    else{
+        return "Este usuário não está logado.\n";
+    }
+
 }
 
 
 string Sistema::leave_server(int id, const string nome) {
-  return "leave_server NÃO IMPLEMENTADO";
+    
+    if(sistemaUsuariosLogados.count(id) > 0){
+        int ret = checkServerExists(nome);
+        //sistemaServidores[ret].addUserToServer(id);
+        if(ret != -1){
+            //caso o usuário tenha sido removido, retorna true
+            if(sistemaServidores[ret].removeUserFromServer(id) == true){
+
+                if(sistemaUsuariosLogados[id].first == nome){ //caso esteja visualizando o servidor.
+                    sistemaUsuariosLogados[id].first = "";
+                    sistemaUsuariosLogados[id].second = "";
+                }
+
+                return "Usuário removido do servidor [ " + sistemaServidores[ret].getServerNome() + " ] com sucesso.\n";
+            }
+
+            else{ //ele só não é removido se não estiver em tal servidor.
+                return "Você não está no servidor [ " + sistemaServidores[ret].getServerNome() + " ].\n";
+            }
+        }
+
+        else{
+            return "Este servidor não existe.\n";
+        }
+    } 
+
+    else{
+        return "Este usuário não está logado.\n";
+    }
+
 }
 
 
 string Sistema::list_participants(int id) {
-  return "list_participants NÃO IMPLEMENTADO";
+
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            for(int i=0; i < sistemaServidores.size(); ++i){
+
+                if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+
+                    sistemaServidores[i].printListaUsuariosServidor(sistemaUsuarios);
+                    break;
+                }     
+
+            }   
+                    
+            return "";
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }
+
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
 }
 
 
 string Sistema::list_channels(int id) {
-  return "list_channels NÃO IMPLEMENTADO";
+
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            for(int i=0; i < sistemaServidores.size(); ++i){
+
+                if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+
+                    sistemaServidores[i].printListaCanaisServidor();
+                    break;
+                }     
+
+            }   
+                    
+            return "";
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
+
+
 }
 
 
 string Sistema::create_channel(int id, const string nome) {
-  return "create_channel NÃO IMPLEMENTADO";
+
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            for(int i=0; i < sistemaServidores.size(); ++i){
+
+                if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+
+                    if(sistemaServidores[i].addCanalTexto(nome) == true){
+                        return "Canal de texto [ " + nome + " ] criado com sucesso. \n";
+                    }
+                    else{
+                        return "Canal de texto [ " + nome + " ] já existe! \n";
+                    }
+                    
+                }     
+
+            }   
+                    
+            return "";
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }   
+
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
 }
 
 
 string Sistema::enter_channel(int id, const string nome) {
-  return "enter_channel NÃO IMPLEMENTADO";
+    
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            for(int i=0; i < sistemaServidores.size(); ++i){
+
+                if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+
+                    if(sistemaServidores[i].checkCanalExiste(nome) == true){
+                        sistemaUsuariosLogados[id].second = nome;
+                        return "Entrou no canal [ " + nome + " ] com sucesso. \n";
+                    }
+                    else{
+                        return "Canal [ " + nome + " ] não existe. \n";
+                    }
+
+                }   
+
+            }   
+                    
+            return "";
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }   
+
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
+
 }
 
 
 string Sistema::leave_channel(int id) {
-  return "leave_channel NÃO IMPLEMENTADO";
+    
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            if(sistemaUsuariosLogados[id].second != ""){
+                cout << "Você saiu do canal [ " + sistemaUsuariosLogados[id].second + " ]." << endl;
+                sistemaUsuariosLogados[id].second = "";
+                return "";
+            }
+
+            else{
+                return "Você não está visualizando qualquer canal. \n";
+            }
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }   
+
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
 }
 
 
 string Sistema::send_message(int id, const string mensagem) {
-  return "send_message NÃO IMPLEMENTADO";
+  
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            if(sistemaUsuariosLogados[id].second != ""){ //se ele estiver visualizando algum canal
+                
+                for(int i=0; i < sistemaServidores.size(); ++i){
+
+                    if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+
+                        for(int i=0; i < sistemaUsuarios.size(); ++i){ 
+                            if(sistemaUsuarios[i].getID() == id){
+                                string who_send = sistemaUsuarios[i].getNome();
+                                sistemaServidores[i].addMsgToChannel(id, mensagem, sistemaUsuariosLogados[id].second, who_send);
+                            
+                                return "Mensagem enviada. \n";
+                            }
+                            
+                        }
+
+                        return "";
+                    }
+                }
+
+                return "";
+
+            }
+
+            else{
+                return "Você não está visualizando qualquer canal. \n";
+            }
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        }   
+        
+    }
+
+    else{
+        return "Este usuário não está logado. \n";
+    }
+
 }
 
 
 string Sistema::list_messages(int id) {
-  return "list_messages NÃO IMPLEMENTADO";
+  
+    if(sistemaUsuariosLogados.count(id) > 0){
+
+        if(sistemaUsuariosLogados[id].first != ""){ // se ele estiver visualizando algum servidor.        
+
+            if(sistemaUsuariosLogados[id].second != ""){
+
+                for(int i=0; i < sistemaServidores.size(); ++i){
+
+                    if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
+                        //cout << "sistema - aqui 1.1" << endl;
+                        sistemaServidores[i].printMsgFromChannel(sistemaUsuariosLogados[id].second);
+                        //cout << "sistema - aqui 2.1" << endl;
+
+                        return "";
+                    }
+                }
+                
+                return "";
+
+            }
+
+            else{
+                return "Você não está visualizando qualquer canal. \n";
+            }
+
+        }
+
+        else{
+            return "Você não está visualizando qualquer servidor. \n";
+        } 
+    }
+    
+    else{
+        return "Este usuário não está logado. \n";
+    }
+
 }
-
-
-
-
-/* IMPLEMENTAR MÉTODOS PARA OS COMANDOS RESTANTES */

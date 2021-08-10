@@ -16,10 +16,7 @@ class Sistema {
         int sistemaIds=0; //<! contador para a quantidade de usuários nos sistema. Contudo, é o id de cada usuário cadastrado no sistema.
 		std::vector<Servidor> sistemaServidores; //<! um vetor com todos os servidores
 		std::vector<Usuario> sistemaUsuarios; //<! um vetor com todos os usuários cadastrados
-		std::map< int, std::pair<std::string, std::string> > sistemaUsuariosLogados; //<! um vetor contendo os usuários que logaram no sistema <id, <servidor, canal>
-
-        // std::map<string, Servidor> sistemaServidoresCriados; //<! map para um servidor cuja chave é o nome e o objeto de retorno é o próprio servidor.
-		
+		std::map< int, std::pair<std::string, std::string> > sistemaUsuariosLogados; //<! um vetor contendo os usuários que logaram no sistema <id, <servidor, canal>		
 
   public:
 
@@ -216,6 +213,8 @@ class Sistema {
         */
         int checkDonoServidor(const string nome, int id);
 
+
+        int checkServerExists(const string nomeServer);
 
 };
 

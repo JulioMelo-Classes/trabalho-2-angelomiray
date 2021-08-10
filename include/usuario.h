@@ -13,24 +13,38 @@ class Usuario{
         string userSenha; //A senha cadastrada pelo usuário, conforme o comando create-user
 
     public:
-        Usuario(int id, string email, string senha, string nome){
-            this->userId = id;
-            this->userNome = nome;
-            this->userEmail = email;
-            this->userSenha = senha;
-        }
+        /* Construtor. 
+            @param id id do usuário.
+            @param email email do usuário
+            @param senha senha do usuário
+            @param nome nome do usuário
+            
+        */
+        Usuario(int id, string email, string senha, string nome);
 
-        string getEmail(){
-            return userEmail;
-        }
 
-        string getNome(){
-            return userNome;
-        }
+        /*! Método que retorna o email do usuário
+            @return email do usuário
+        */
+        string getEmail();
 
-        string getSenha(){
-            return userSenha;
-        }
+
+        /*!  Método que retorna o nome do usuário
+            @return nome do usuário.
+        */
+        string getNome();
+
+
+        /*! Método que retorna a senha do usuário
+            @return senha do usuário.
+        */
+        string getSenha();
+
+
+        /*! Método que retorna o id do usuário.
+            @return id do usuário.
+        */
+        int getID();
 
 };
 

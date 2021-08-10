@@ -57,9 +57,33 @@ include CMakeFiles/concordo.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/concordo.dir/flags.make
 
+CMakeFiles/concordo.dir/src/canaltexto.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/canaltexto.cpp.o: ../src/canaltexto.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/concordo.dir/src/canaltexto.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/canaltexto.cpp.o -c /home/runner/Concordo/Concordo/src/canaltexto.cpp
+
+CMakeFiles/concordo.dir/src/canaltexto.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/canaltexto.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/canaltexto.cpp > CMakeFiles/concordo.dir/src/canaltexto.cpp.i
+
+CMakeFiles/concordo.dir/src/canaltexto.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/canaltexto.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/canaltexto.cpp -o CMakeFiles/concordo.dir/src/canaltexto.cpp.s
+
+CMakeFiles/concordo.dir/src/canaltexto.cpp.o.requires:
+
+.PHONY : CMakeFiles/concordo.dir/src/canaltexto.cpp.o.requires
+
+CMakeFiles/concordo.dir/src/canaltexto.cpp.o.provides: CMakeFiles/concordo.dir/src/canaltexto.cpp.o.requires
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/canaltexto.cpp.o.provides.build
+.PHONY : CMakeFiles/concordo.dir/src/canaltexto.cpp.o.provides
+
+CMakeFiles/concordo.dir/src/canaltexto.cpp.o.provides.build: CMakeFiles/concordo.dir/src/canaltexto.cpp.o
+
+
 CMakeFiles/concordo.dir/src/concordo.cpp.o: CMakeFiles/concordo.dir/flags.make
 CMakeFiles/concordo.dir/src/concordo.cpp.o: ../src/concordo.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/concordo.dir/src/concordo.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/concordo.dir/src/concordo.cpp.o"
 	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/concordo.cpp.o -c /home/runner/Concordo/Concordo/src/concordo.cpp
 
 CMakeFiles/concordo.dir/src/concordo.cpp.i: cmake_force
@@ -79,30 +103,6 @@ CMakeFiles/concordo.dir/src/concordo.cpp.o.provides: CMakeFiles/concordo.dir/src
 .PHONY : CMakeFiles/concordo.dir/src/concordo.cpp.o.provides
 
 CMakeFiles/concordo.dir/src/concordo.cpp.o.provides.build: CMakeFiles/concordo.dir/src/concordo.cpp.o
-
-
-CMakeFiles/concordo.dir/src/sistema.cpp.o: CMakeFiles/concordo.dir/flags.make
-CMakeFiles/concordo.dir/src/sistema.cpp.o: ../src/sistema.cpp
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/concordo.dir/src/sistema.cpp.o"
-	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/sistema.cpp.o -c /home/runner/Concordo/Concordo/src/sistema.cpp
-
-CMakeFiles/concordo.dir/src/sistema.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/sistema.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/sistema.cpp > CMakeFiles/concordo.dir/src/sistema.cpp.i
-
-CMakeFiles/concordo.dir/src/sistema.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/sistema.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/sistema.cpp -o CMakeFiles/concordo.dir/src/sistema.cpp.s
-
-CMakeFiles/concordo.dir/src/sistema.cpp.o.requires:
-
-.PHONY : CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
-
-CMakeFiles/concordo.dir/src/sistema.cpp.o.provides: CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
-	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.o.provides.build
-.PHONY : CMakeFiles/concordo.dir/src/sistema.cpp.o.provides
-
-CMakeFiles/concordo.dir/src/sistema.cpp.o.provides.build: CMakeFiles/concordo.dir/src/sistema.cpp.o
 
 
 CMakeFiles/concordo.dir/src/executor.cpp.o: CMakeFiles/concordo.dir/flags.make
@@ -129,21 +129,125 @@ CMakeFiles/concordo.dir/src/executor.cpp.o.provides: CMakeFiles/concordo.dir/src
 CMakeFiles/concordo.dir/src/executor.cpp.o.provides.build: CMakeFiles/concordo.dir/src/executor.cpp.o
 
 
+CMakeFiles/concordo.dir/src/mensagem.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/mensagem.cpp.o: ../src/mensagem.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object CMakeFiles/concordo.dir/src/mensagem.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/mensagem.cpp.o -c /home/runner/Concordo/Concordo/src/mensagem.cpp
+
+CMakeFiles/concordo.dir/src/mensagem.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/mensagem.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/mensagem.cpp > CMakeFiles/concordo.dir/src/mensagem.cpp.i
+
+CMakeFiles/concordo.dir/src/mensagem.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/mensagem.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/mensagem.cpp -o CMakeFiles/concordo.dir/src/mensagem.cpp.s
+
+CMakeFiles/concordo.dir/src/mensagem.cpp.o.requires:
+
+.PHONY : CMakeFiles/concordo.dir/src/mensagem.cpp.o.requires
+
+CMakeFiles/concordo.dir/src/mensagem.cpp.o.provides: CMakeFiles/concordo.dir/src/mensagem.cpp.o.requires
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/mensagem.cpp.o.provides.build
+.PHONY : CMakeFiles/concordo.dir/src/mensagem.cpp.o.provides
+
+CMakeFiles/concordo.dir/src/mensagem.cpp.o.provides.build: CMakeFiles/concordo.dir/src/mensagem.cpp.o
+
+
+CMakeFiles/concordo.dir/src/servidor.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/servidor.cpp.o: ../src/servidor.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object CMakeFiles/concordo.dir/src/servidor.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/servidor.cpp.o -c /home/runner/Concordo/Concordo/src/servidor.cpp
+
+CMakeFiles/concordo.dir/src/servidor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/servidor.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/servidor.cpp > CMakeFiles/concordo.dir/src/servidor.cpp.i
+
+CMakeFiles/concordo.dir/src/servidor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/servidor.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/servidor.cpp -o CMakeFiles/concordo.dir/src/servidor.cpp.s
+
+CMakeFiles/concordo.dir/src/servidor.cpp.o.requires:
+
+.PHONY : CMakeFiles/concordo.dir/src/servidor.cpp.o.requires
+
+CMakeFiles/concordo.dir/src/servidor.cpp.o.provides: CMakeFiles/concordo.dir/src/servidor.cpp.o.requires
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.o.provides.build
+.PHONY : CMakeFiles/concordo.dir/src/servidor.cpp.o.provides
+
+CMakeFiles/concordo.dir/src/servidor.cpp.o.provides.build: CMakeFiles/concordo.dir/src/servidor.cpp.o
+
+
+CMakeFiles/concordo.dir/src/sistema.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/sistema.cpp.o: ../src/sistema.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object CMakeFiles/concordo.dir/src/sistema.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/sistema.cpp.o -c /home/runner/Concordo/Concordo/src/sistema.cpp
+
+CMakeFiles/concordo.dir/src/sistema.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/sistema.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/sistema.cpp > CMakeFiles/concordo.dir/src/sistema.cpp.i
+
+CMakeFiles/concordo.dir/src/sistema.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/sistema.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/sistema.cpp -o CMakeFiles/concordo.dir/src/sistema.cpp.s
+
+CMakeFiles/concordo.dir/src/sistema.cpp.o.requires:
+
+.PHONY : CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
+
+CMakeFiles/concordo.dir/src/sistema.cpp.o.provides: CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.o.provides.build
+.PHONY : CMakeFiles/concordo.dir/src/sistema.cpp.o.provides
+
+CMakeFiles/concordo.dir/src/sistema.cpp.o.provides.build: CMakeFiles/concordo.dir/src/sistema.cpp.o
+
+
+CMakeFiles/concordo.dir/src/usuario.cpp.o: CMakeFiles/concordo.dir/flags.make
+CMakeFiles/concordo.dir/src/usuario.cpp.o: ../src/usuario.cpp
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object CMakeFiles/concordo.dir/src/usuario.cpp.o"
+	/usr/bin/c++  $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -o CMakeFiles/concordo.dir/src/usuario.cpp.o -c /home/runner/Concordo/Concordo/src/usuario.cpp
+
+CMakeFiles/concordo.dir/src/usuario.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/concordo.dir/src/usuario.cpp.i"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/runner/Concordo/Concordo/src/usuario.cpp > CMakeFiles/concordo.dir/src/usuario.cpp.i
+
+CMakeFiles/concordo.dir/src/usuario.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/concordo.dir/src/usuario.cpp.s"
+	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/runner/Concordo/Concordo/src/usuario.cpp -o CMakeFiles/concordo.dir/src/usuario.cpp.s
+
+CMakeFiles/concordo.dir/src/usuario.cpp.o.requires:
+
+.PHONY : CMakeFiles/concordo.dir/src/usuario.cpp.o.requires
+
+CMakeFiles/concordo.dir/src/usuario.cpp.o.provides: CMakeFiles/concordo.dir/src/usuario.cpp.o.requires
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.o.provides.build
+.PHONY : CMakeFiles/concordo.dir/src/usuario.cpp.o.provides
+
+CMakeFiles/concordo.dir/src/usuario.cpp.o.provides.build: CMakeFiles/concordo.dir/src/usuario.cpp.o
+
+
 # Object files for target concordo
 concordo_OBJECTS = \
+"CMakeFiles/concordo.dir/src/canaltexto.cpp.o" \
 "CMakeFiles/concordo.dir/src/concordo.cpp.o" \
+"CMakeFiles/concordo.dir/src/executor.cpp.o" \
+"CMakeFiles/concordo.dir/src/mensagem.cpp.o" \
+"CMakeFiles/concordo.dir/src/servidor.cpp.o" \
 "CMakeFiles/concordo.dir/src/sistema.cpp.o" \
-"CMakeFiles/concordo.dir/src/executor.cpp.o"
+"CMakeFiles/concordo.dir/src/usuario.cpp.o"
 
 # External object files for target concordo
 concordo_EXTERNAL_OBJECTS =
 
+concordo: CMakeFiles/concordo.dir/src/canaltexto.cpp.o
 concordo: CMakeFiles/concordo.dir/src/concordo.cpp.o
-concordo: CMakeFiles/concordo.dir/src/sistema.cpp.o
 concordo: CMakeFiles/concordo.dir/src/executor.cpp.o
+concordo: CMakeFiles/concordo.dir/src/mensagem.cpp.o
+concordo: CMakeFiles/concordo.dir/src/servidor.cpp.o
+concordo: CMakeFiles/concordo.dir/src/sistema.cpp.o
+concordo: CMakeFiles/concordo.dir/src/usuario.cpp.o
 concordo: CMakeFiles/concordo.dir/build.make
 concordo: CMakeFiles/concordo.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking CXX executable concordo"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/runner/Concordo/Concordo/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX executable concordo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/concordo.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
@@ -151,9 +255,13 @@ CMakeFiles/concordo.dir/build: concordo
 
 .PHONY : CMakeFiles/concordo.dir/build
 
+CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/canaltexto.cpp.o.requires
 CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/concordo.cpp.o.requires
-CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
 CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/executor.cpp.o.requires
+CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/mensagem.cpp.o.requires
+CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/servidor.cpp.o.requires
+CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/sistema.cpp.o.requires
+CMakeFiles/concordo.dir/requires: CMakeFiles/concordo.dir/src/usuario.cpp.o.requires
 
 .PHONY : CMakeFiles/concordo.dir/requires
 

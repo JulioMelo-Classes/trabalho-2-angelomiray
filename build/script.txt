@@ -1,8 +1,0 @@
-create-user angelo@email.com senha1 Angelo Miranda
-create-user angelo@email2.com senha2 Angelo2 Miranda2
-login angelo@email.com senha1
-create-server 0 SERVER-TEST
-set-server-invite-code 0 SERVER-TEST 123CODIGO
-list-servers 0
-remove-server 0 SERVER-TEST 
-list-servers 0 

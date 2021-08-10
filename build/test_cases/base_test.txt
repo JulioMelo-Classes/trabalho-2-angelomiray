@@ -1,0 +1,18 @@
+create-user jack@email.com jacksenha Jack
+login jack@email.com jacksenha
+create-server 0 SERVER-DO-JACK
+list-servers 0 
+set-server-invite-code 0 SERVER-DO-JACK CODIGOJACK
+enter-server 0 SERVER-DO-JACK CODIGOJACK
+list-participants 0
+create-channel 0 channel1
+list-channels 0
+enter-channel 0 channel1
+send-message 0 Something in the way
+send-message 0 High hopes
+list-messages 0
+leave-channel 0
+leave-server 0 SERVER-DO-JACK
+remove-server 0 SERVER-DO-JACK 
+disconnect 0
+quit

@@ -123,6 +123,33 @@ concordo/fast:
 	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/build
 .PHONY : concordo/fast
 
+src/canaltexto.o: src/canaltexto.cpp.o
+
+.PHONY : src/canaltexto.o
+
+# target to build an object file
+src/canaltexto.cpp.o:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/canaltexto.cpp.o
+.PHONY : src/canaltexto.cpp.o
+
+src/canaltexto.i: src/canaltexto.cpp.i
+
+.PHONY : src/canaltexto.i
+
+# target to preprocess a source file
+src/canaltexto.cpp.i:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/canaltexto.cpp.i
+.PHONY : src/canaltexto.cpp.i
+
+src/canaltexto.s: src/canaltexto.cpp.s
+
+.PHONY : src/canaltexto.s
+
+# target to generate assembly for a file
+src/canaltexto.cpp.s:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/canaltexto.cpp.s
+.PHONY : src/canaltexto.cpp.s
+
 src/concordo.o: src/concordo.cpp.o
 
 .PHONY : src/concordo.o
@@ -177,6 +204,60 @@ src/executor.cpp.s:
 	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/executor.cpp.s
 .PHONY : src/executor.cpp.s
 
+src/mensagem.o: src/mensagem.cpp.o
+
+.PHONY : src/mensagem.o
+
+# target to build an object file
+src/mensagem.cpp.o:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/mensagem.cpp.o
+.PHONY : src/mensagem.cpp.o
+
+src/mensagem.i: src/mensagem.cpp.i
+
+.PHONY : src/mensagem.i
+
+# target to preprocess a source file
+src/mensagem.cpp.i:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/mensagem.cpp.i
+.PHONY : src/mensagem.cpp.i
+
+src/mensagem.s: src/mensagem.cpp.s
+
+.PHONY : src/mensagem.s
+
+# target to generate assembly for a file
+src/mensagem.cpp.s:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/mensagem.cpp.s
+.PHONY : src/mensagem.cpp.s
+
+src/servidor.o: src/servidor.cpp.o
+
+.PHONY : src/servidor.o
+
+# target to build an object file
+src/servidor.cpp.o:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.o
+.PHONY : src/servidor.cpp.o
+
+src/servidor.i: src/servidor.cpp.i
+
+.PHONY : src/servidor.i
+
+# target to preprocess a source file
+src/servidor.cpp.i:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.i
+.PHONY : src/servidor.cpp.i
+
+src/servidor.s: src/servidor.cpp.s
+
+.PHONY : src/servidor.s
+
+# target to generate assembly for a file
+src/servidor.cpp.s:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/servidor.cpp.s
+.PHONY : src/servidor.cpp.s
+
 src/sistema.o: src/sistema.cpp.o
 
 .PHONY : src/sistema.o
@@ -204,6 +285,33 @@ src/sistema.cpp.s:
 	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/sistema.cpp.s
 .PHONY : src/sistema.cpp.s
 
+src/usuario.o: src/usuario.cpp.o
+
+.PHONY : src/usuario.o
+
+# target to build an object file
+src/usuario.cpp.o:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.o
+.PHONY : src/usuario.cpp.o
+
+src/usuario.i: src/usuario.cpp.i
+
+.PHONY : src/usuario.i
+
+# target to preprocess a source file
+src/usuario.cpp.i:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.i
+.PHONY : src/usuario.cpp.i
+
+src/usuario.s: src/usuario.cpp.s
+
+.PHONY : src/usuario.s
+
+# target to generate assembly for a file
+src/usuario.cpp.s:
+	$(MAKE) -f CMakeFiles/concordo.dir/build.make CMakeFiles/concordo.dir/src/usuario.cpp.s
+.PHONY : src/usuario.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -213,15 +321,27 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... concordo"
 	@echo "... edit_cache"
+	@echo "... src/canaltexto.o"
+	@echo "... src/canaltexto.i"
+	@echo "... src/canaltexto.s"
 	@echo "... src/concordo.o"
 	@echo "... src/concordo.i"
 	@echo "... src/concordo.s"
 	@echo "... src/executor.o"
 	@echo "... src/executor.i"
 	@echo "... src/executor.s"
+	@echo "... src/mensagem.o"
+	@echo "... src/mensagem.i"
+	@echo "... src/mensagem.s"
+	@echo "... src/servidor.o"
+	@echo "... src/servidor.i"
+	@echo "... src/servidor.s"
 	@echo "... src/sistema.o"
 	@echo "... src/sistema.i"
 	@echo "... src/sistema.s"
+	@echo "... src/usuario.o"
+	@echo "... src/usuario.i"
+	@echo "... src/usuario.s"
 .PHONY : help
 
 

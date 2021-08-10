@@ -1,4 +1,9 @@
+#include "../include/sistema.h"
 #include "../include/executor.h"
+#include "../include/mensagem.h"
+#include "../include/servidor.h"
+#include "../include/usuario.h"
+#include "../include/canaltexto.h"
 #include <istream>
 #include <ostream>
 #include <iostream>
