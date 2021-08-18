@@ -6,7 +6,10 @@
 #include "sistema.h"
 
 using namespace std;
-
+/*
+Ok
+O formato de documentação não foi o do doxygen, mas vou considerar
+*/
 class Mensagem{
     private:
         string dataHora; //Um texto representando um timestamp com a data e hora em que a mensagem foi enviada no formato <DD/MM/AAAA - HH:MM>, exemplo: <08/03/2021 - 11:53>

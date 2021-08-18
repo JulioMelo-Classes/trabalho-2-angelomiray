@@ -346,11 +346,18 @@ string Sistema::remove_server(int id, const string nome) {
 
 }
 
-
+/*
+A2.7 0,6
+Esse método permite que mais de uma cópia de um usuário entre no servidor, vou remover 20% por isso. Dá para
+você testar fazendo enter-server id server duas vezes com o mesmo id no mesmo servidor.
+*/
 string Sistema::enter_server(int id, const string nome, const string codigo) {
 
     if(sistemaUsuariosLogados.count(id) > 0){
         
+        /*o server é aberdo quando o código _DELE_ é diferente de vazio e não quando o usuário 
+        envia o código vazio. Dessa forma que vc vez o sistema permite que usuários entrem
+        no servidor mesmo que ele tenha senha, bastando mandar sem senha. Vou remover 20% por isso*/
         if(codigo.empty()){//se o server for aberto
             int ret = checkServerExists(nome);
 
@@ -411,6 +418,9 @@ string Sistema::enter_server(int id, const string nome, const string codigo) {
 }
 
 
+/*
+A2.8 ok
+*/
 string Sistema::leave_server(int id, const string nome) {
     
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -445,6 +455,9 @@ string Sistema::leave_server(int id, const string nome) {
 }
 
 
+/*
+A2.9 ok
+*/
 string Sistema::list_participants(int id) {
 
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -477,6 +490,9 @@ string Sistema::list_participants(int id) {
 }
 
 
+/*
+B1.1 ok
+*/
 string Sistema::list_channels(int id) {
 
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -509,7 +525,9 @@ string Sistema::list_channels(int id) {
 
 }
 
-
+/*
+B1.2 ok
+*/
 string Sistema::create_channel(int id, const string nome) {
 
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -520,7 +538,7 @@ string Sistema::create_channel(int id, const string nome) {
 
                 if(sistemaServidores[i].getServerNome() == sistemaUsuariosLogados[id].first){
 
-                    if(sistemaServidores[i].addCanalTexto(nome) == true){
+                    if(sistemaServidores[i].addCanalTexto(nome) == true){ //não precisa comparar com true/false quando as funções retornam bool
                         return "Canal de texto [ " + nome + " ] criado com sucesso. \n";
                     }
                     else{
@@ -546,7 +564,9 @@ string Sistema::create_channel(int id, const string nome) {
     }
 }
 
-
+/*
+B1.3 ok
+*/
 string Sistema::enter_channel(int id, const string nome) {
     
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -585,7 +605,9 @@ string Sistema::enter_channel(int id, const string nome) {
 
 }
 
-
+/*
+B1.4 ok
+*/
 string Sistema::leave_channel(int id) {
     
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -615,7 +637,9 @@ string Sistema::leave_channel(int id) {
     }
 }
 
-
+/*
+B2.1 ok
+*/
 string Sistema::send_message(int id, const string mensagem) {
   
     if(sistemaUsuariosLogados.count(id) > 0){
@@ -664,7 +688,11 @@ string Sistema::send_message(int id, const string mensagem) {
 
 }
 
-
+/*
+B2.2 0,5
+Embora o sistema diga que as mensagens são envaidas eu não consegui testar, caso de teste adicionando na pasta data
+vou considerar 50%
+*/
 string Sistema::list_messages(int id) {
   
     if(sistemaUsuariosLogados.count(id) > 0){

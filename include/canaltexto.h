@@ -5,7 +5,10 @@
 #include "../include/mensagem.h"
 
 using namespace std;
-
+/*
+Ok
+O formato de documentação não foi o do doxygen, mas vou considerar
+*/
 class CanalTexto{
 	private:
         string ctNome; //O nome do canal, conforme o comando create-channel

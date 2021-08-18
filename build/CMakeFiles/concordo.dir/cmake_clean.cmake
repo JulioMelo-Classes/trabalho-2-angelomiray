@@ -6,8 +6,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/concordo.dir/src/servidor.cpp.o"
   "CMakeFiles/concordo.dir/src/sistema.cpp.o"
   "CMakeFiles/concordo.dir/src/usuario.cpp.o"
-  "concordo.pdb"
   "concordo"
+  "concordo.pdb"
 )
 
 # Per-language clean rules from dependency scanning.

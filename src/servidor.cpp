@@ -119,6 +119,7 @@ void Servidor::addMsgToChannel(int id, string mensagem, const string nome_canal,
 
     for(int i=0; i < serverCanaisTexto.size(); ++i){
         if(serverCanaisTexto[i].getCtNome() == nome_canal){
+            
             Mensagem nova_mensagem(id, mensagem, who_send);
             serverCanaisTexto[i].addMsg(nova_mensagem);
             break;

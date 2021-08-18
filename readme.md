@@ -65,6 +65,7 @@ Sendo assim, para executar via arquivo:
 
 
 # Execução dos arquivos de teste
+<!--casos de teste ok-->
 Nesta sessão serão abordados os resultados dos arquivos de testes que estão inseridos em `build/test_cases`.
 
 ## base_test

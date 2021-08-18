@@ -5,6 +5,10 @@
 
 using namespace std;
 
+/*
+Ok
+O formato de documentação não foi o do doxygen, mas vou considerar
+*/
 class Usuario{
 	private:
         int userId; //identificador único para o usuário.
